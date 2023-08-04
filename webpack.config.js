@@ -42,7 +42,8 @@ module.exports = {
       directory: path.join(__dirname, './build'),
     },
     compress: true,
-    port: 3000,
+    port: 3001,
+    hot: true,  // Enables hot module replacement
   },
   module: {
     rules: [
@@ -58,8 +59,9 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
+    
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
