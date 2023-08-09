@@ -1324,7 +1324,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .gh{
   --tw-bg-opacity: 1;
-  background-color: rgb(76 181 174 / var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .hh\/20{
   background-color: rgb(255 255 255 / 0.2);
