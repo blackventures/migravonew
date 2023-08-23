@@ -9,6 +9,8 @@ module.exports = {
     colors: {
       current: 'currentColor',
       transparent: 'transparent',
+      skyBlue: "#BDE0FE",
+      dirtyBlue: "#9DBBD4",
       white: '#FFFFFF',
       black: '#181C31',
       blacksection: '#1C2136',

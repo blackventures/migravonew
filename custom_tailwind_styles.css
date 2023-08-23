@@ -1,0 +1,38 @@
+./*
+Prevent-`sub`-and-`sup`-elements-from-affecting-the-line-height-in-all-browserstw-
+*/
+
+sub { @apply relative; }
+.sup- { @apply relative; }
+./*
+1tw--Change-the-font-styles-in-all-browserstw-
+2tw--Remove-the-margin-in-Firefox-and-Safaritw-
+3tw--Remove-default-padding-in-all-browserstw-
+*/
+
+button { @apply p-0; }
+.input { @apply p-0; }
+.optgroup { @apply p-0; }
+.select { @apply p-0; }
+.textarea- { @apply p-0; }
+.fieldset- { @apply p-0; }
+.legend- { @apply p-0; }
+.ol { @apply list-none p-0; }
+.ul { @apply list-none p-0; }
+.menu- { @apply list-none p-0; }
+.body { @apply relative z-10; }
+.tw-a { @apply flex-col; }
+.@media-(min-width:-1024px) { @apply flex; }
+.tw-i { @apply relative; }
+.tw-ua { @apply z-10; }
+.tw-va { @apply z-10; }
+.tw-bb { @apply ml-auto mr-auto; }
+.tw-tc { @apply flex; }
+.tw-uc { @apply flex; }
+.tw-sf { @apply flex-col; }
+.tw-tf { @apply flex-col; }
+.tw-pg { @apply overflow-hidden; }
+.tw-di { @apply p-0; }
+.tw-ei { @apply p-0; }
+.--tw-gn { @apply flex; }
+.--tw-oo { @apply flex; }
