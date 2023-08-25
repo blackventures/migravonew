@@ -1,3 +1,27 @@
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC9o_nKxr4ijASNiA0EK7g1zftRe0Pn23E",
+  authDomain: "migravo.firebaseapp.com",
+  projectId: "migravo",
+  storageBucket: "migravo.appspot.com",
+  messagingSenderId: "250437340704",
+  appId: "1:250437340704:web:845bab5905489c18073645",
+  measurementId: "G-KK4DF5RQY1"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 // import Fancybox css
 // import 'fancyapps/ui/dist/fancybox.css';
 
@@ -22,6 +46,9 @@ import Isotope from 'isotope-layout';
 // import fslightbox
 import fslightbox from 'fslightbox';
 // require('fslightbox');
+
+// New import for firebaseAuth.js
+import './firebaseAuth'; // <-- Add this line
 
 Alpine.plugin(intersect);
 window.Alpine = Alpine;

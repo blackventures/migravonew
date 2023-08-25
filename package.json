@@ -32,6 +32,7 @@
   "dependencies": {
     "@alpinejs/intersect": "^3.10.3",
     "alpinejs": "^3.10.3",
+    "firebase": "^10.3.0",
     "fslightbox": "^3.3.1",
     "isotope-layout": "^3.0.6",
     "scrollreveal": "^4.0.9",

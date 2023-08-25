@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Sign In Redirect | Base - Tailwind CSS Startup Template</title>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"></script>
+    <script src="src/js/firebaseAuth.js"></script>
+  </head>
+  <body
+    x-data="{ page: 'emailsigninredirect', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark bg-black': darkMode === true}"
+  >
+    <!-- ===== Header Start ===== -->
+    <include src="./partials/header.html" />
+    <!-- ===== Header End ===== -->
+
+    <main>
+      <!-- ===== Email SignIn Redirect Info Start ===== -->
+      <section class="relative overflow-hidden bg-whiter dark:bg-blacksection px-4 md:px-8 xl:px-0 pt-35 lg:pt-45 xl:pt-50 pb-20 lg:pb-25 xl:pb-30">
+        <!-- Bg Shapes -->
+        <img src="./images/shape/shape-06.svg" alt="Shape" class="absolute top-[30%] left-[2%]" />
+        <img src="./images/shape/shape-03.svg" alt="Shape" class="absolute bottom-[40%] right-[15%]" />
+        <img src="./images/shape/shape-17.svg" alt="Shape" class="absolute bottom-[5%] right-[2%]" />
+        <img src="./images/shape/shape-18.svg" alt="Shape" class="absolute bottom-0 right-0" />
+
+        <div
+          class="animate_top mx-auto max-w-550 relative z-10 rounded-lg bg-white dark:bg-black shadow-3 dark:shadow-none py-9 md:py-11.5 lg:py-16.5 px-7.5 md:px-12.5 lg:px-17.5"
+        >
+          <!-- Bg Border -->
+          <span class="block absolute top-0 left-0 w-1/2 h-1.5 rounded-tl-lg bg-primary"></span>
+          <span class="block absolute top-0 right-0 w-1/2 h-1.5 rounded-tr-lg bg-secondary"></span>
+
+          <div class="text-center">
+            <h2 class="font-medium text-title-lg2 text-black dark:text-white mb-2.5">Email Sign In</h2>
+            <p id="signInStatus">Processing your sign-in request...</p>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Email SignIn Redirect Info End ===== -->
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <include src="./partials/footer.html" />
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <include src="./partials/scrolltop.html" />
+    <!-- ====== Back To Top End ===== -->
+
+    <script>
+      window.onload = function() {
+        handleEmailSignInRedirect().then((user) => {
+          if(user) {
+            // Sign-in was successful
+            document.getElementById("signInStatus").textContent = "Sign-in successful! Welcome " + user.email + ".";
+          } else {
+            // No user is signed in, or something went wrong.
+            document.getElementById("signInStatus").textContent = "There was an issue signing you in. Please try again.";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
