@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In | Base - Tailwind CSS Startup Template</title>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"></script>
+    <script src="src/js/firebaseAuth.js"></script>
   <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet"></head>
   <body
     x-data="{ page: 'signin', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
@@ -94,7 +99,7 @@
           </label>
         </div>
 
-        <a href="signin.html" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }" class="ek pk xl">Sign In</a>
+        <a href="signin.html" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }" class="fw500 pk xl">Sign In</a>
         <a href="signup.html" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }" class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
       </div>
     </div>
@@ -120,10 +125,10 @@
           <span class="rc h r q zd/2 od xg mh"></span>
 
           <div class="rj">
-            <h2 class="ek ck kk wm xb">Sign in to your Account</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur</p>
+            <h2 class="fw500 ck kk wm xb">Sign in to your Account</h2>
+            <p>Enter your email address and we will send you a sign-in link</p>
 
-            <h3 class="hk yj kk wm ob mc">Sign in with Social Media</h3>
+            <!--h3 class="hk yj kk wm ob mc">Sign in with Social Media</h3>
             <ul class="tc wf xf mg ec">
               <li>
                 <a
@@ -202,35 +207,24 @@
               <span class="rc h s z/2 nd oe rh tm"></span>
               <span class="rc h q z/2 nd oe rh tm"></span>
 
-              Or, sign in with your email
+              Sign in with your email
             </span>
-          </div>
+          </div-->
 
-          <form class="sb" action="https://formbold.com/s/unique_form_id" method="POST">
+          <form id="emailSignInForm" class="sb">
             <div class="wb">
-              <label class="rc kk wm vb" for="username">Username</label>
+              <label class="rc kk wm vb" for="username">Email</label>
               <input
                 type="text"
                 name="username"
-                id="username"
+                id="email"
                 placeholder="example@gmail.com"
                 class="vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40"
               />
             </div>
 
-            <div class="wb">
-              <label class="rc kk wm vb" for="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="**************"
-                class="vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40"
-              />
-            </div>
-
-            <button class="vd rj ek rc rg gh lk ml il _l gi hi">
-              Sign In
+            <button class="vd rj fw500 rc rg gh lk ml il _l gi hi" type="submit">
+              Send Sign-In Link
             </button>
 
             <p class="sj hk xj rj ob">
@@ -241,6 +235,13 @@
         </div>
       </section>
       <!-- ===== SignIn Form End ===== -->
+      <script>
+        document.getElementById("emailSignInForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          sendSignInEmail(email);
+        });
+      </script>
     </main>
     <!-- ===== Footer Start ===== -->
     <footer>
@@ -334,7 +335,7 @@
               <li>
                 <a href="#" class="sc xl vb">
                   Careers 
-                  <span class="sc ek uj lk nh rg zi _i nc">Hiring</span>
+                  <span class="sc fw500 uj lk nh rg zi _i nc">Hiring</span>
                 </a>
               </li>
               <li><a href="#" class="sc xl vb">Pricing</a></li>
